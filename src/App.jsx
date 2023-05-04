@@ -10,6 +10,7 @@ import NavBar from "./Components/NavBar";
 import NotFound from "./Pages/NotFound";
 import Footer from "../src/Components/Footer";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {

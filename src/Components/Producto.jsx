@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom"
+import Button from 'react-bootstrap/Button';
 function Producto({id,nombre,precio,categoria,imagen}){
   
   return (
@@ -9,7 +10,8 @@ function Producto({id,nombre,precio,categoria,imagen}){
         <h1>{nombre}</h1>        
         <p>{categoria}</p>
        
-        <button className="ver-mas"><Link to={`/producto/${id}`}>Ver Detalle</Link></button>
+        
+        <Button variant="primary" as={Link} to={`/producto/${id}`}>Ver Detalle</Button>
       </div>
     </div>  
   );
