@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { create } from '../Services/usuariosService'
 
 
 
@@ -12,8 +13,14 @@ function Registro(){
     formState: {errors},
   } = useForm({ mode: "onChange"});
   
-  const onSubmit = (data) =>{
-    console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      const user = create(data)
+      console.log("🚀 ~ file: Registro.jsx:18 ~ onSubmit ~ user:", user)
+    }
+    catch(e){
+      console.log(e)
+    }
   }
 
  

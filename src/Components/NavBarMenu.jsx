@@ -16,14 +16,9 @@ function NavBarMenu(){
             <Nav.Link  as={Link} to="/">Home</Nav.Link>
             <Nav.Link  as={Link} to="/Registro">Registro</Nav.Link>
             <Nav.Link  as={Link} to="/Login">Login</Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item as={Link} to="/">Action</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to="/">Separated link </NavDropdown.Item>
+            <NavDropdown title="Productos" id="collasible-nav-dropdown">
+              <NavDropdown.Item as={Link} to="/alta">Alta</NavDropdown.Item>
+              
             </NavDropdown>
           </Nav>          
         </Navbar.Collapse>

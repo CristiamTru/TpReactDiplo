@@ -16,7 +16,7 @@ function Productos(){
         try{
           const response = await getAllProductos()
           // const response = await res.json()
-          console.log("🚀 ~ file: Productos.jsx:25 ~ request ~ response:", response.results)
+          //console.log("🚀 ~ file: Productos.jsx:25 ~ request ~ response:", response.results)
           setProductos(response.results)
           setLoading(false)
         }catch(e){

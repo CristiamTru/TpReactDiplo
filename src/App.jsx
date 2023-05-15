@@ -10,6 +10,7 @@ import NavBarMenu from "./Components/NavBarMenu";
 import NotFound from "./Pages/NotFound";
 import Footer from "../src/Components/Footer";
 import Container from 'react-bootstrap/Container';
+import ProductosAlta from './Pages/ProductosAlta';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -23,8 +24,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/registro" element={<Registro />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/alta" element={<ProductosAlta />} />
           <Route path="/producto/:id" element={<Detalle />} />
           <Route path="*" element={<NotFound />} />
+
+          
         </Routes>  
       </Container>
       <Footer /> 
