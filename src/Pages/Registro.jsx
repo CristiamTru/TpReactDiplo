@@ -1,82 +1,89 @@
 import { useForm } from 'react-hook-form';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
+
+
 
 function Registro(){
   const { 
     register, 
-    handleSubmit, 
-    formState: {errors, isDirty},
-    watch,
+    handleSubmit,  
+    formState: {errors},
   } = useForm({ mode: "onChange"});
   
   const onSubmit = (data) =>{
     console.log(data);
   }
 
-  const password = watch('password');
+ 
   
 
   return (
-      <div className="container">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div id="content-registro">
-            <div className="item">
-              <div className="labels">
-                <label>Nombre</label>
-                {errors.nombre && (
+      <div>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form.Group className="mb-3" controlId="formBasicNombre">
+            <Form.Label>Nombre</Form.Label>
+            <Form.Control type="text" {...register("nombre",{required:true})} />
+            {errors.nombre && (
+                <Form.Text className="text-muted">
                   <span>El campo es obligatorio</span>
-                )}
-              </div>
-              <input type="text" {...register("nombre",{required:true})}  />
-            </div>
-            
-            <div className="item">
-              <div className="labels">
-                <label>Apellido</label>
-                {errors.apellido && (
+                </Form.Text>
+            )}
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicApellido">
+            <Form.Label>Apellido</Form.Label>
+            <Form.Control type="text"  {...register("apellido",{required:true})} />
+            {errors.apellido && (
+                <Form.Text className="text-muted">
+                  <span>El campo es obligatorio</span>
+                </Form.Text>
+            )}
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Correo Electrónico</Form.Label>
+            <Form.Control type="email"  {...register("email",{
+              required:true,
+              pattern: /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/,
+              })}  />
+             {errors.email && (
+                <Form.Text className="text-muted">
+                  {errors.email?.type ==='required' && (
                   <span>El campo es obligatorio</span>                
-                )}
-              </div>
-              <input type="text" {...register("apellido",{required:true})}  />
-            </div>
-            
-            <div className="item">
-              <div className="labels">
-                <label>Email</label>
-                {errors.email && (
-                  <span>El campo es obligatorio</span>
-                )}
-              </div>
-              <input type="email" {...register("email",{required:true})}  />
-            </div>
-           
-            <div className="item">
-              <div className="labels">
-                <label>Contraseña</label>
-                {errors.password && (
-                  <span>El campo es obligatorio</span>
-                )}
-              </div>
-              <input type="password" {...register("password",{required:true})}  />
-            </div>
-            
-            <div className="item">
-              <div className="labels">
-                <label>Confirmar contraseña</label>
-                {errors.confirmPassword && (
-                  <span>La contraseña es diferente a la anterior</span>
-                )}
-              </div>
-              <input type="password" {...register("confirmPassword",{
-                required: true,
-                validate: value => value === password,
-              })} />
-            </div>
-           
-            <div className="item enviar">              
-              <button type="submit" disabled={!isDirty}>REGISTRARSE</button>
-            </div>
-          </div>
-        </form>
+                  )}
+                  {errors.email?.type ==='pattern' && (
+                  <span>El campo es obligatorio</span>                
+                  )}
+                </Form.Text>
+              )}
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Contraseña</Form.Label>
+            <Form.Control type="password" {...register("password",{
+              required:true,
+              minLength: 6,
+              maxLength: 12,
+              })}  /> 
+            {errors.password && (
+                <Form.Text className="text-muted">
+                  {errors.password?.type ==='required' && (
+                  <span>El campo es obligatorio</span>                
+                  )}
+                  {errors.password?.type ==='minLength' && (
+                  <span>Debe completar al menos 6 caracteres</span>                
+                  )}
+                  {errors.password?.type ==='maxLength' && (
+                  <span>Debe completar menos  de 12 caracteres</span>                
+                  )}
+                </Form.Text>
+              )}
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            REGISTRARSE 
+          </Button>
+        </Form>
+        
       </div>
   );    
 }

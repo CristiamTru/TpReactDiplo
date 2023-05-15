@@ -4,7 +4,7 @@ function Cargando(){
   
   return (
     <div id="cargando">                
-          <div class="spinner"></div>                
+          <div className="spinner"></div>                
           <h3>Cargando...</h3>
       </div>
   );

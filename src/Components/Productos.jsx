@@ -3,6 +3,7 @@ import Producto from "./Producto";
 import { getAllProductos } from "../Services/productosService";
 import Cargando from "./Cargando";
 
+
 function Productos(){
 
   const [loading,setLoading] = useState(true)
@@ -39,7 +40,7 @@ function Productos(){
     )
   }else{
     return (
-      <div className="container">
+      <div>
           <h1>{titulo}</h1>
          
           <div id="productos">

@@ -15,6 +15,7 @@
 
 body {
   overflow-x: hidden;
+  background-color: #faf5ef !important;
 }
 
 .App-header {
@@ -32,15 +33,7 @@ body {
   color: #61dafb;
 }
 
-.container {
-  padding: 0px 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: #faf5ef;
-  min-height: 90vh;
-}
+
 
 #menu-principal {
   display: flex;
@@ -156,15 +149,6 @@ body {
 }
 
 
-.producto-detalle {
-  max-width: 1000px;
-  display: flex;
-  min-width: 800px;
-  gap: 50px;
-  box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
-  background-color: white;
-}
 .producto-detalle div{
   width: 50%;
 }
@@ -207,7 +191,7 @@ body {
 }
 
 #cargando {
-  position: inherit;
+  position: absolute;
   background-color: #faf5ef;
   top: 0px;
   left: 0px;
@@ -296,4 +280,41 @@ body {
   font-size: 10px;
   font-weight: 700;
   color: red;
+}
+/*====================
+nuevoos estilos
+=========================*/
+
+.card-image-container {
+  width: 100%;
+  padding-bottom: 100%; /* Establece el alto del contenedor como un porcentaje del ancho para que sea cuadrado */
+  position: relative;
+  overflow: hidden; /* Recorta cualquier parte de la imagen que se salga del contenedor */
+}
+
+.card-image {
+  position: absolute;
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta la posición al centro */
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+  height: auto; /* Permite que la altura se ajuste automáticamente */
+  background-size: cover; /* Escala la imagen para que cubra todo el contenedor */
+}
+.producto-detalle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0px;
+}
+
+.producto-detalle .card{
+  flex-direction: row;
+  display: flex;
+  min-width: 800px;
+  gap: 50px;
+  box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  background-color: white;
+  margin: 0px auto;
 }
