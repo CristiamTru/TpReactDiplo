@@ -1,9 +1,5 @@
     import firebase from '../Config/firebase';
-    import 'firebase/compat/auth';
-
-
-
-    
+        
     export async function create(payload) {
     const respuesta = await firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password);
     //console.log(responseUser);
@@ -12,7 +8,6 @@
         name:payload.nombre,
         lastname:payload.apellido,
         userId: respuesta.user.uid
-
     }) 
     return documento
     }

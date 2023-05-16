@@ -2,28 +2,34 @@ import {Link} from "react-router-dom"
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-function Producto({id,nombre,precio,categoria,imagen}){
+
+
+function Producto({ id, nombre, precio, categoria, thumbnail }) {
+  const formatoPrecio = new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    currency: "ARS",
+    maximumFractionDigits: 0
+  }).format(precio);
   
   return (
-    <div>      
+         
       
         <Col>
           <Card>
-            <div className="card-image-container">
-              <Card.Img variant="center" className="card-image"  src={imagen.replace('-I.', '-O.')} alt={nombre} style={{ maxWidth: '100%' }} />
-            </div>
+            
+            <Card.Img variant="top" src={thumbnail} />
+            
             <Card.Body>
               <Card.Title>{nombre}</Card.Title>
               <Card.Text>
-                <h2>{precio}</h2>
+                <h2>{formatoPrecio}</h2>
               </Card.Text>
               <Button variant="primary" as={Link} to={`/producto/${id}`}>Ver Detalle</Button>
             </Card.Body>
           </Card>
         </Col>
       
-    </div>  
-
+    
    
   );
 }

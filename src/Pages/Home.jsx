@@ -10,8 +10,6 @@ function Home() {
   return (
     <div>
       <Productos />
-     
-      
     </div>
   );
 }

@@ -7,7 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 function NavBarMenu(){
   
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
+    <Navbar id="menu-principal" collapseOnSelect expand="lg"  sticky="top">
       <Container>
         <Navbar.Brand href="#home">LOGO</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

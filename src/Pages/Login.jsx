@@ -10,7 +10,7 @@ function Login(){
   const { 
     register, 
     handleSubmit,  
-    formState: {errors},
+    formState: { errors },
   } = useForm({ mode: "onChange"});
   
   const onSubmit = async (data) => {
@@ -18,7 +18,7 @@ function Login(){
       const user = await login(data.usuario, data.password);
       console.log("Usuario autenticado:", user);
     } catch (error) {
-      console.log("Error al autenticar:", error);
+      console.log(error);
     }
   };
   
@@ -26,7 +26,7 @@ function Login(){
   
 
   return (
-      <div>
+      <div id="content-login">
         <Form onSubmit={handleSubmit(onSubmit)}>
            
           <Form.Group className="mb-3" controlId="formBasicEmail">

@@ -18,6 +18,7 @@ function ProductosAlta(){
     try {
         const document = await create(data)
         console.log("🚀 ~ file: ProductosAlta.jsx:20 ~ onSubmit ~ document:", document)
+        
     }
     catch(e){
       console.log(e)
@@ -28,7 +29,7 @@ function ProductosAlta(){
   
 
   return (
-      <div>
+      <div id="producto-alta">
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Group className="mb-3" controlId="formBasicNombre">
             <Form.Label>Nombre</Form.Label>

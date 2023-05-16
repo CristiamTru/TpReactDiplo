@@ -27,7 +27,7 @@ function Registro(){
   
 
   return (
-      <div>
+      <div id="content-registro">
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Group className="mb-3" controlId="formBasicNombre">
             <Form.Label>Nombre</Form.Label>
