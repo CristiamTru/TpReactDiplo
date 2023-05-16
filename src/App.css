@@ -70,13 +70,35 @@ body {
   opacity: 1;
   transition: opacity 1s ease-in-out;
 }
-.container{
+#root #menu-principal .container {
+  min-height: unset;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+#root .container-fluid{
   min-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0px 15%;
 }
-
+.overlay{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: #303449e6;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  mix-blend-mode: multiply;
+ 
+}
 #footer {
   position: relative;
   bottom: 0px;
@@ -109,12 +131,32 @@ body {
 
 
 /*registrro*/
-#content-registro, #content-login, #producto-alta, .producto {
+#content-registro, #content-login, #producto-alta {
   background-color: white;
   padding: 50px;  
   min-width: 30vw;
   border-radius: 20px;
   box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.producto {
+  background-color: white;
+  padding: 0px;  
+  min-width: 30vw;
+  border-radius: 20px;
+  box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.producto img{
+  border-radius: 20px 0px 0px 20px;
+  max-width: 100%;
+    height: 100%;
+}
+
+.producto .info-producto{
+  padding: 50px;
 }
 
 #content-registro  label, #content-login  label, #producto-alta label{
@@ -123,10 +165,9 @@ body {
   color: #1f8a70;
 }
 
-#content-registro  input, #content-login  input, #producto-alta input{
+#content-registro  input, #content-login  input, #producto-alta input, #producto-alta textarea{
   min-height: 30px;
-  border: unset;
-  border-bottom: 1px solid #1f8a70;
+  border: 1px solid #1f8a70;
   color: #1f8a70;
 }
 #content-registro .enviar, #content-login .entrar, #producto-alta .cargar{

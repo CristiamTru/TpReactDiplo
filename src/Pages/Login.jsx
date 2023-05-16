@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { login } from '../Services/usuariosService'
+import Container from 'react-bootstrap/Container';
 
 
 
@@ -26,6 +27,7 @@ function Login(){
   
 
   return (
+    <Container>
       <div id="content-login">
         <Form onSubmit={handleSubmit(onSubmit)}>
            
@@ -74,6 +76,7 @@ function Login(){
         </Form>
         
       </div>
+    </Container>
   );    
 }
 

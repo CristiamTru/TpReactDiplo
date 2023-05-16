@@ -4,6 +4,7 @@ import { getById } from "../Services/productosService";
 
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 
 
 import Row from 'react-bootstrap/Row';
@@ -41,25 +42,36 @@ function Detalle() {
     currency: "ARS",
     maximumFractionDigits: 0
   }).format(producto.price);
+
   
+  //URL de la imagen en Firebase
+  const estilo = {
+    backgroundImage: `url(${producto.thumbnail})`,
+    backgroundSize: `cover`,
+    // Otras propiedades de estilo aquí
+  };
   return (
-    <div > 
+    <Container fluid style={estilo}>
       
-        <Row xs={1} md={2} lg={2} className="g-4 producto">
-          <Col >
-            <img className="img-fluid" src={producto.thumbnail} />
+      
+        <Row xs={1} md={2} lg={2} className=" producto">
+          <Col className="p-0">
+            <img  src={producto.thumbnail} />
           </Col>
-          <Col>
+          <Col className="info-producto">
             <h1>{producto.title}</h1>
+            <h1>{producto.pais}</h1>
+            <p>{producto.descripcion}</p>
             <h2>{formatoPrecio}</h2>
             <Button variant="primary" >Ver Detalle</Button>
           </Col>
         </Row>  
+        <div className="overlay"></div>
       
       
         
       
-    </div>  
+    </Container>  
    
   );
 }

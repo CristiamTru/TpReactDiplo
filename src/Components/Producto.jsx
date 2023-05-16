@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 
-function Producto({ id, nombre, precio, categoria, thumbnail }) {
+function Producto({ id, nombre, precio, descripcion, thumbnail, pais }) {
   const formatoPrecio = new Intl.NumberFormat("es-AR", {
     style: "currency",
     currency: "ARS",

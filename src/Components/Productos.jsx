@@ -40,7 +40,8 @@ function Productos() {
               thumbnail={producto.data().thumbnail}
               nombre={producto.data().title}
               precio={producto.data().price}
-              categoria=""
+              descripcion={producto.data().descripcion}
+              pais={producto.data().pais}
             />
           ))}
         </Row>

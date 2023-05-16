@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { create } from '../Services/usuariosService'
+import Container from 'react-bootstrap/Container';
 
 
 
@@ -27,6 +28,7 @@ function Registro(){
   
 
   return (
+    <Container>
       <div id="content-registro">
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Group className="mb-3" controlId="formBasicNombre">
@@ -92,6 +94,7 @@ function Registro(){
         </Form>
         
       </div>
+    </Container>
   );    
 }
 

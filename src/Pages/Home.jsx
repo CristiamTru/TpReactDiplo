@@ -1,5 +1,6 @@
 //Componente tipo funcion
 import Productos from "../Components/Productos";
+import Container from 'react-bootstrap/Container';
 //import firebase from '../Config/firebase'
  
 
@@ -8,9 +9,9 @@ import Productos from "../Components/Productos";
 function Home() {
   //console.log(firebase)
   return (
-    <div>
+    <Container>
       <Productos />
-    </div>
+    </Container>
   );
 }
 
