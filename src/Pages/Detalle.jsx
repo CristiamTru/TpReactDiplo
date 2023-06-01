@@ -5,6 +5,10 @@ import { getById } from "../Services/productosService";
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import Cargando from "../Components/Cargando";
+import CloseButton from 'react-bootstrap/CloseButton';
+
+import { Link } from "react-router-dom"
 
 
 import Row from 'react-bootstrap/Row';
@@ -43,20 +47,24 @@ function Detalle() {
     maximumFractionDigits: 0
   }).format(producto.price);
 
-  
+
   //URL de la imagen en Firebase
   const estilo = {
     backgroundImage: `url(${producto.thumbnail})`,
     backgroundSize: `cover`,
     // Otras propiedades de estilo aquí
   };
-  return (
-    <Container fluid style={estilo}>
-      
-      
+  if (loading) {
+    return <Cargando />;
+  } else {
+    return (
+      <Container fluid style={estilo}>
+
+
         <Row xs={1} md={2} lg={2} className=" producto">
+          <Link id="cerrar" to="/"><CloseButton /></Link>
           <Col className="p-0">
-            <img  src={producto.thumbnail} />
+            <img src={producto.thumbnail} />
           </Col>
           <Col className="info-producto">
             <h1>{producto.title}</h1>
@@ -65,15 +73,16 @@ function Detalle() {
             <h2>{formatoPrecio}</h2>
             <Button variant="primary" >Ver Detalle</Button>
           </Col>
-        </Row>  
+        </Row>
         <div className="overlay"></div>
-      
-      
-        
-      
-    </Container>  
-   
-  );
+
+
+
+
+      </Container>
+
+    );
+  }
 }
 
 export default Detalle;

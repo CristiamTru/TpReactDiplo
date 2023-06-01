@@ -7,7 +7,7 @@ import Cargando from "./Cargando";
 function Productos() {
   const [loading, setLoading] = useState(true);
   const [productos, setProductos] = useState([]);
-  const [titulo, setTitulo] = useState('Listado de productos');
+
 
   useEffect(() => {
     const request = async () => {
@@ -16,7 +16,7 @@ function Productos() {
         console.log("🚀 ~ file: Productos.jsx:16 ~ request ~ querySnapshot:", querySnapshot.docs)
         setProductos(querySnapshot.docs)
         setLoading(false)
-        
+
       } catch (error) {
         console.log(error);
       }
@@ -29,13 +29,14 @@ function Productos() {
     return <Cargando />;
   } else {
     return (
-      
+
       <div>
-        <h1>{titulo}</h1>
+        <h1>Listado de productos</h1>
         <Row xs={1} md={2} lg={4}>
-        
+
           {productos.map((producto) => (
             <Producto
+              key={producto.id}
               id={producto.id}
               thumbnail={producto.data().thumbnail}
               nombre={producto.data().title}
@@ -46,7 +47,7 @@ function Productos() {
           ))}
         </Row>
       </div>
-      
+
     );
   }
 }

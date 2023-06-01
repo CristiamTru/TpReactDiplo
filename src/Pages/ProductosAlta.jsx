@@ -4,15 +4,10 @@ import Form from 'react-bootstrap/Form';
 import { create } from '../Services/productosService';
 import Container from 'react-bootstrap/Container';
 
-
-
-
-
 function ProductosAlta(){
   const { 
     register, 
-    handleSubmit,  
-   
+    handleSubmit,     
   } = useForm({ mode: "onChange"});
   
   const onSubmit = async (data) => {
